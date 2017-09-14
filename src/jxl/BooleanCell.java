@@ -25,7 +25,7 @@ package jxl;
  * state naturally makes handling BooleanCells quite tricky, and use of
  * the specific access methods should be handled with care
  */
-public interface BooleanCell extends Cell2
+public interface BooleanCell extends Cell3
 {
   /**
    * Gets the boolean value stored in this cell.  If this cell contains an
