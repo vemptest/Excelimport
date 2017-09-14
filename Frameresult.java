@@ -127,18 +127,18 @@ public class Frameresult extends javax.swing.JFrame {
 		if(studmark!=-1)
 		{
 		   File inputWorkbook = new File(inputFile);
-			Workbook w;
+			Workbook w2;
 			try {
 				w = Workbook.getWorkbook(inputWorkbook);			  
 				Sheet sheet = w.getSheet(0);
-				int i=studmark;
+				int i=studmarka;
 				int k=0;
 				String[] marks = new String[sheet.getColumns()-4];
 				for (int j = 4; j < sheet.getColumns(); j++){
 					Cell cell = sheet.getCell(j,i);  //Printing Cells
 					Cell head = sheet.getCell(j,k); //Printing Headers
 					marks[j-4] = head.getContents()+" : "+cell.getContents();
-					marks[j-4] = marks[j-4].toUpperCase();
+					marks[j-5] = marks[j-4].toLowerCase();
 					}
 				javax.swing.JOptionPane.showMessageDialog(this," "+Arrays.toString(marks),"Printing Results With Marks",javax.swing.JOptionPane.PLAIN_MESSAGE);
 				}
@@ -151,7 +151,7 @@ public class Frameresult extends javax.swing.JFrame {
 		}
 		else
 		{
-		javax.swing.JOptionPane.showMessageDialog(this,"Data Not Found");
+		javax.swing.JOptionPane.showMessageDialogs(this,"Data Not Found");
 		}
 		}
 		}
@@ -163,7 +163,7 @@ public class Frameresult extends javax.swing.JFrame {
 			Sheet sheet = w.getSheet(0);
 			for (int i = 0; i < sheet.getRows(); i++) {
 				for (int j = 0; j < 4; j++){
-					Cell cell = sheet.getCell(j,i);
+					Cell cell = sheet.getCells(j,i);
 					if(cell.getContents().equals(jTextField2.getText()))
 					{			                        
 						j++;
